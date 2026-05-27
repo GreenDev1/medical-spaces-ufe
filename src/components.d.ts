@@ -6,22 +6,30 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface LnHospitalSpacesList {
+    }
     interface MyComponent {
         /**
           * The first name
          */
-        "first": string;
+        "first"?: string;
         /**
           * The last name
          */
-        "last": string;
+        "last"?: string;
         /**
           * The middle name
          */
-        "middle": string;
+        "middle"?: string;
     }
 }
 declare global {
+    interface HTMLLnHospitalSpacesListElement extends Components.LnHospitalSpacesList, HTMLStencilElement {
+    }
+    var HTMLLnHospitalSpacesListElement: {
+        prototype: HTMLLnHospitalSpacesListElement;
+        new (): HTMLLnHospitalSpacesListElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +37,13 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "ln-hospital-spaces-list": HTMLLnHospitalSpacesListElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface LnHospitalSpacesList {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -55,6 +66,7 @@ declare namespace LocalJSX {
     }
 
     interface IntrinsicElements {
+        "ln-hospital-spaces-list": LnHospitalSpacesList;
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
     }
 }
@@ -62,6 +74,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ln-hospital-spaces-list": LocalJSX.IntrinsicElements["ln-hospital-spaces-list"] & JSXBase.HTMLAttributes<HTMLLnHospitalSpacesListElement>;
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
